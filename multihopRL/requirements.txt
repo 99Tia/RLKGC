@@ -1,0 +1,2 @@
+tqdm==4.66.3
+matplotlib==2.1.2

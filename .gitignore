@@ -1,0 +1,57 @@
+# ===============================
+# SYSTEM / PYTHON
+# ===============================
+__pycache__/
+*.pyc
+*.pyo
+*.bak
+.ipynb_checkpoints/
+.vscode/
+
+# ===============================
+# DATA (DO NOT UPLOAD)
+# ===============================
+multihopRL/data/
+KGC/datasets/
+
+# ===============================
+# TRAINING OUTPUTS
+# ===============================
+multihopRL/outputs/
+multihopRL/results/
+multihopRL/model/
+KGC/outputs/
+KGC/logs*
+KGC/logs_*
+KGC/instructions/
+
+# ===============================
+# LARGE FILES / ARCHIVES
+# ===============================
+*.tgz
+*.zip
+*.tar
+*.pt
+*.bin
+*.ckpt
+*.safetensors
+
+# ===============================
+# FILES YOU SAID NOT TO UPLOAD
+# ===============================
+multihopRL/CODEOWNERS
+multihopRL/Dockerfile
+multihopRL/data-release.tgz
+multihopRL/umls_conve_train.txt
+KGC/README.md
+multihopRL/README.md
+# KGC/.gitignore
+# multihopRL/.gitignore
+
+
+**/data/
+**/datasets/
+**/outputs/
+**/results/
+**/model/
+**/logs*/
