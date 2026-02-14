@@ -31,7 +31,7 @@ RLKGC/
 
 ---
 
-# ⚙️ Environment Setup
+## ⚙️ Environment Setup
 
 Recommended configuration:
 
@@ -50,7 +50,7 @@ pip install sentence_transformers
 
 ---
 
-# 📂 Datasets
+## 📂 Datasets
 
 We evaluate RLKGC on:
 
@@ -86,9 +86,9 @@ KGC/
 
 ---
 
-# 🔵 Stage 1: multihopRL (RL-based Retrieval)
+## 🔵 Stage 1: multihopRL (RL-based Retrieval)
 
-## 1️⃣ Process Data
+### 1️⃣ Process Data
 
 ```
 ./experiment.sh configs/<dataset>.sh --process_data 0
@@ -102,7 +102,7 @@ Available datasets:
 
 ---
 
-## 2️⃣ Train Embedding Model
+### 2️⃣ Train Embedding Model
 
 Supported embedding models:
 
@@ -122,7 +122,7 @@ Optional evaluation:
 
 ---
 
-## 3️⃣ Train RL + Reward Shaping
+### 3️⃣ Train RL + Reward Shaping
 
 Edit configuration file:
 
@@ -156,9 +156,9 @@ multihopRL/outputs/<dataset>_cats.jsonl
 
 ---
 
-# 🟢 Stage 2: KGC (LLM-based Reasoning)
+## 🟢 Stage 2: KGC (LLM-based Reasoning)
 
-## 1️⃣ Install Dependencies
+### 1️⃣ Install Dependencies
 
 ```
 pip install -r requirements.txt
@@ -167,10 +167,10 @@ pip install sentence_transformers
 
 ---
 
-## 2️⃣ Convert Retrieved Paths (Inductive Setting)
+### 2️⃣ Convert Retrieved Paths (Inductive Setting)
 
 ```
-python tools/convert_fb15k237_paths.py
+python tools/convert_<your_dataset>_paths.py
 ```
 
 This generates:
@@ -181,11 +181,11 @@ datasets/<dataset>/paths/close_path.json
 
 ---
 
-## 3️⃣ (Optional) Build Instructions
+### 3️⃣ (Optional) Build Instructions
 
 ```
 python build_instructions.py \
-  --dataset FB15k-237-subset \
+  --dataset <your_dataset> \
   --train_size full \
   --prompt_type CATS \
   --subgraph_type combine \
@@ -194,13 +194,13 @@ python build_instructions.py \
 
 ---
 
-# 🤖 LLM Setup
+## 🤖 LLM Setup
 
 Experiments can be reproduced using:
 
 - Qwen2-7B-Instruct  
 - Meta-Llama-3-8B-Instruct  
-- Meta-Llama-3-1.5B-Instruct  
+- Qwen2-1.5B-Instruct  
 
 Download model checkpoints from:
 
@@ -208,7 +208,27 @@ Download model checkpoints from:
 - Meta-Llama-3-8B-Instruct: [Model Link](https://huggingface.co/meta-llama/Meta-Llama-3-8B-Instruct)
 - Qwen2-1.5B-Instruct: [Model Link](https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct)
 
-Update:
+
+---
+
+
+
+## 🧠 Instruction-Tuning (Supervised Fine-Tuning)
+
+We adopt **[LLaMA-Factory](https://github.com/hiyouga/LlamaFactory)** for supervised fine-tuning (SFT) of the base LLM using the generated instruction prompts.
+
+
+Please follow the installation and training instructions provided in the official repository.
+
+During fine-tuning, you need to:
+
+- Specify the path to the generated instruction prompts
+- Set the base model checkpoint (e.g., Qwen2-7B-Instruct or Meta-Llama-3-8B-Instruct)
+- Configure training hyperparameters (learning rate, batch size, LoRA configuration, etc.)
+
+The detailed hyperparameter settings used in our experiments are described in the paper.
+
+After fine-tuning, update the model path in:
 
 ```
 KGC/data_manager.py
@@ -217,12 +237,14 @@ KGC/data_manager.py
 Set:
 
 ```
-LLM_PATH = "<your_local_model_path>"
+LLM_PATH = "<path_to_your_finetuned_model>"
 ```
 
 ---
 
-# 🚀 Inference
+
+
+## 🚀 Inference
 
 Example (Inductive Setting):
 
@@ -246,7 +268,7 @@ To run in transductive setting:
 
 ---
 
-# ⚠️ Important Note for NELL-995
+## ⚠️ Important Note for NELL-995
 
 For NELL-995, the original training data is split into `train.triples` and `dev.triples`.  
 For final evaluation, the model must be trained using both files combined.
@@ -281,7 +303,7 @@ Inference:
 
 ---
 
-# 📊 Outputs
+## 📊 Outputs
 
 RL retrieval outputs:
 
@@ -302,17 +324,13 @@ KGC/outputs/
 If you use this code, please cite:
 
 ```
-@inproceedings{RLKGC2026,
-  title={RLKGC: Reinforcement Learning Retrieval with Large Language Models for Knowledge Graph Completion},
-  booktitle={PAKDD},
-  year={2026}
-}
+Accepted at PAKDD 2026.  
+Citation information will be updated upon publication.
 ```
 
 ---
 
-# 🔒 Notes
+## 🔒 Notes
 
 - Datasets, logs, and model checkpoints are excluded from this repository.
 - Ensure correct GPU assignment before training.
-- Adjust training epochs based on development performance.
