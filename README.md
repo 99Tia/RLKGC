@@ -90,7 +90,7 @@ KGC/
 ### 1️⃣ Process Data
 
 ```
-./experiment.sh configs/<dataset>.sh --process_data 0
+./experiment.sh configs/<dataset>.sh --process_data <gpu-ID>
 ```
 
 Available datasets:
@@ -116,7 +116,7 @@ Supported embedding models:
 Optional evaluation:
 
 ```
-./experiment-emb.sh configs/<dataset>-<embedding_model>.sh --inference 0
+./experiment-emb.sh configs/<dataset>-<embedding_model>.sh --inference <gpu-ID>
 ```
 
 ---
@@ -138,13 +138,13 @@ complex_state_dict_path="model/<your_pretrained_embedding>/best_dev_iteration.da
 Train:
 
 ```
-./experiment-rs.sh configs/<dataset>-rs.sh --train 0
+./experiment-rs.sh configs/<dataset>-rs.sh --train <gpu-ID>
 ```
 
 Inference:
 
 ```
-./experiment-rs.sh configs/<dataset>-rs.sh --inference 0
+./experiment-rs.sh configs/<dataset>-rs.sh --inference <gpu-ID>
 ```
 
 Generated path file:
