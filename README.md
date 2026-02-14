@@ -24,9 +24,8 @@ The complete pipeline consists of two stages:
 
 ```
 RLKGC/
-├── multihopRL/      # RL + reward shaping module
-├── KGC/             # LLM-based reasoning module
-└── README.md
+├── multihopRL/      # RL + reward shaping module           
+└── KGC              # LLM-based reasoning module
 ```
 
 ---
