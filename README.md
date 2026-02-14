@@ -1,11 +1,10 @@
-# RLKGC
+# [PAKDD 2026] RLKGC: Reinforcement Learning Retrieval with Large Language Models for Knowledge Graph Completion
 
-<p align="center">
-<b>RLKGC: Reinforcement Learning Retrieval with Large Language Models for Knowledge Graph Completion</b><br>
-Accepted at <b>PAKDD 2026</b>
-</p>
+This repository provides the official implementation of the paper  
+*"RLKGC: Reinforcement Learning Retrieval with Large Language Models for Knowledge Graph Completion"*.
 
----
+![RLKGC Pipeline](RLKGC_Pipeline.png)
+
 
 ## 📌 Overview
 
@@ -62,7 +61,7 @@ We evaluate RLKGC on:
 ⚠️ Datasets are **NOT included** in this repository.
 
 Please download `data-release.tgz` from the official MultiHopKG repository  
-[Download here](PASTE_MULTIHOPKG_DATA_LINK)
+[Download here](https://github.com/salesforce/MultiHopKG/blob/master/data-release.tgz)
 
 Unpack:
 
@@ -77,7 +76,7 @@ multihopRL/data/
 ```
 
 For the LLM module, download the full dataset and instruction files from  
-[Dataset & Instructions link](PASTE_KGC_DATA_LINK)
+[Dataset & Instructions link](https://drive.google.com/drive/folders/17C3BsllCWy_TK3B5WwCjxPQo2heuLJPz)
 
 Then copy the `datasets/` and `instructions/` folders into:
 
@@ -205,9 +204,9 @@ Experiments can be reproduced using:
 
 Download model checkpoints from:
 
-- Qwen2-7B-Instruct: [Model Link](PASTE_MODEL_LINK)
-- Meta-Llama-3-8B-Instruct: [Model Link](PASTE_MODEL_LINK)
-- Meta-Llama-3-1.5B-Instruct: [Model Link](PASTE_MODEL_LINK)
+- Qwen2-7B-Instruct: [Model Link](https://huggingface.co/Qwen/Qwen2-7B-Instruct)
+- Meta-Llama-3-8B-Instruct: [Model Link](https://huggingface.co/meta-llama/Meta-Llama-3-8B-Instruct)
+- Qwen2-1.5B-Instruct: [Model Link](https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct)
 
 Update:
 
