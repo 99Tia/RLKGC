@@ -132,7 +132,7 @@ nano configs/<dataset>-rs.sh
 Set embedding checkpoint path:
 
 ```
-complex_state_dict_path="model/<your_pretrained_embedding>/best_dev_iteration.dat"
+<embedding_model>_state_dict_path="model/<your_pretrained_embedding>/best_dev_iteration.dat"
 ```
 
 Train:
