@@ -320,8 +320,6 @@ KGC/outputs/
 
 # 📜 Citation
 
-If you use this code, please cite:
-
 ```bibtex
 Accepted at PAKDD 2026.  
 Citation information will be updated upon publication.
