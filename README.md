@@ -40,7 +40,7 @@ Recommended configuration:
 
 Create environment:
 
-```
+```bash
 conda create -n rlkgc python=3.10
 conda activate rlkgc
 pip install -r requirements.txt
@@ -64,7 +64,7 @@ Please download `data-release.tgz` from the official MultiHopKG repository
 
 Unpack:
 
-```
+```bash
 tar xvzf data-release.tgz
 ```
 
