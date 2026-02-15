@@ -89,7 +89,7 @@ KGC/
 
 ### 1️⃣ Process Data
 
-```
+```bash
 ./experiment.sh configs/<dataset>.sh --process_data <gpu-ID>
 ```
 
@@ -109,13 +109,13 @@ Supported embedding models:
 - complex  
 - conve  
 
-```
+```bash
 ./experiment-emb.sh configs/<dataset>-<embedding_model>.sh --train <gpu-ID>
 ```
 
 Optional evaluation:
 
-```
+```bash
 ./experiment-emb.sh configs/<dataset>-<embedding_model>.sh --inference <gpu-ID>
 ```
 
@@ -125,25 +125,25 @@ Optional evaluation:
 
 Edit configuration file:
 
-```
+```bash
 nano configs/<dataset>-rs.sh
 ```
 
 Set embedding checkpoint path:
 
-```
+```bash
 <embedding_model>_state_dict_path="model/<your_pretrained_embedding>/best_dev_iteration.dat"
 ```
 
 Train:
 
-```
+```bash
 ./experiment-rs.sh configs/<dataset>-rs.sh --train <gpu-ID>
 ```
 
 Inference:
 
-```
+```bash
 ./experiment-rs.sh configs/<dataset>-rs.sh --inference <gpu-ID>
 ```
 
@@ -159,7 +159,7 @@ multihopRL/outputs/<dataset>_cats.jsonl
 
 ### 1️⃣ Install Dependencies
 
-```
+```bash
 pip install -r requirements.txt
 pip install sentence_transformers
 ```
@@ -168,13 +168,13 @@ pip install sentence_transformers
 
 ### 2️⃣ Convert Retrieved Paths (Inductive Setting)
 
-```
+```bash
 python tools/convert_<your_dataset>_paths.py
 ```
 
 This generates:
 
-```
+```bash
 datasets/<dataset>/paths/close_path.json
 ```
 
@@ -182,7 +182,7 @@ datasets/<dataset>/paths/close_path.json
 
 ### 3️⃣ (Optional) Build Instructions
 
-```
+```bash
 python build_instructions.py \
   --dataset <your_dataset> \
   --train_size full \
@@ -235,7 +235,7 @@ KGC/data_manager.py
 
 Set:
 
-```
+```bash
 LLM_PATH = "<path_to_your_finetuned_model>"
 ```
 
@@ -247,7 +247,7 @@ LLM_PATH = "<path_to_your_finetuned_model>"
 
 Example (Inductive Setting):
 
-```
+```bash
 python prediction.py \
   --dataset <your_dataset> \
   --setting inductive \
@@ -261,7 +261,7 @@ python prediction.py \
 
 To run in transductive setting:
 
-```
+```bash
 --setting transductive
 ```
 
@@ -276,25 +276,25 @@ To obtain correct test results, include the `--test` flag in all preprocessing, 
 
 Process data:
 
-```
+```bash
 ./experiment.sh configs/nell-995.sh --process_data <gpu-ID> --test
 ```
 
 Train embedding model:
 
-```
+```bash
 ./experiment-emb.sh configs/nell-995-conve.sh --train <gpu-ID> --test
 ```
 
 Train RL + Reward Shaping:
 
-```
+```bash
 ./experiment-rs.sh configs/NELL-995-rs.sh --train <gpu-ID> --test
 ```
 
 Inference:
 
-```
+```bash
 ./experiment-rs.sh configs/NELL-995-rs.sh --inference <gpu-ID> --test
 ```
 
@@ -322,7 +322,7 @@ KGC/outputs/
 
 If you use this code, please cite:
 
-```
+```bibtex
 Accepted at PAKDD 2026.  
 Citation information will be updated upon publication.
 ```
